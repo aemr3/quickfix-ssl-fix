@@ -152,21 +152,8 @@ private:
 
     static int atomic_exchange_and_add(int * pw, int dv)
     {
-      // int r = *pw;
-      // *pw += dv;
-      // return r;
-
-      int r;
-
-      __asm__ __volatile__
-        (
-          "lock\n\t"
-          "xadd %1, %0":
-          "+m"(*pw), "=r"(r) : // outputs (%0, %1)
-          "1"(dv) : // inputs (%2 == %1)
-          "memory", "cc" // clobbers
-        );
-
+      int r = *pw;
+      *pw += dv;
       return r;
     }
   };
