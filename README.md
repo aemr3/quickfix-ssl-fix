@@ -1,3 +1,17 @@
+This repository is implements a fix to compile package on OSX. You will
+need to install openssl via homebrew before installing this package.
+Run following commands to use homebrew's openssl on the compilation step:
+
+```
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+```
+
+
+---
+
 This package is a fork of the Quickfix project that exposes the
 SSL capabilities of the library to Python. The pull request can
 be found [here](https://github.com/quickfix/quickfix/pull/361).
